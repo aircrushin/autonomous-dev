@@ -14,3 +14,9 @@ test('GitHub Actions CI workflow is read-only and runs deterministic gates in or
   assert.doesNotMatch(workflow, /secrets\.|npm publish|pnpm publish|git push|deploy/i);
   assert.doesNotMatch(workflow, /contents:\s*write/);
 });
+
+test('pnpm workspace declares a package for hosted pnpm cache discovery', () => {
+  const workspace = readFileSync('pnpm-workspace.yaml', 'utf8');
+  assert.match(workspace, /packages:\s*\n\s*- ['"]?\.['"]?/);
+  assert.match(workspace, /allowBuilds:\s*\n\s+esbuild:\s*true/);
+});
