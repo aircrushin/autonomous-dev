@@ -8,7 +8,7 @@
 | Phase 1 | `src/storage/database.ts`、`tests/unit/storage.test.ts`、ADR 0030/0033/0037/0038/0042/0043/0044/0046/0047/0049/0054 | storage focused 与全量回归均通过 | 跨机数据库和生产迁移 |
 | Phase 2 | `src/environments/`、`tests/integration/phase2-e2e.test.ts`、ADR 0035/0048/0050/0059/0062/0063 | phase2/controller focused、全量、typecheck/build 通过 | 真实远端 Agent、主机与凭据 |
 | Phase 3 | `src/verification/runner.ts`、`tests/integration/verification.test.ts`、ADR 0031/0056/0057/0060/0061 | verification/observability focused 与全量通过 | 所有真实检查类型、远程 artifact 长期保留 |
-| Phase 4 | `src/controller/loop.ts`、`src/recovery/`、`tests/integration/controller-loop.test.ts`、ADR 0039/0040/0051/0052/0053 | controller/recovery focused 与全量通过 | 进程管理器、跨机 soak、无限期活性 |
+| Phase 4 | `src/controller/loop.ts`、`src/recovery/`、`tests/integration/controller-loop.test.ts`、ADR 0039/0040/0051/0052/0053/0073 | controller/recovery focused 与全量通过；崩溃接管测试使用 1000ms lease TTL 和 1200ms 有界等待，保留真实 SIGKILL/过期接管断言 | 进程管理器、跨机 soak、无限期活性 |
 | Phase 5 | `src/delivery/`、`tests/integration/delivery.test.ts`、`github-provider.test.ts`、ADR 0024/0032/0055/0068/0072 | delivery focused 与全量通过；ADR0069 QC 只读 preflight 文档测试 1/1；hosted run 37404982889 的 `verify` job 成功执行 frozen install 与 `pnpm ci:local` | PR/merge 对账、真实 merge、外部回写 |
 | Phase 6 | `src/policy/`、HumanRequest storage/controller tests、ADR 0054 | phase6 focused 与全量通过 | 真实人工授权渠道与身份系统 |
 | Phase 7 | `src/observability/`、`tests/unit/export.test.ts`、`observability-http.test.ts`、ADR 0020/0026/0028/0061 | observability focused 与全量通过 | 生产认证/TLS、远程抓取与 metrics 部署 |

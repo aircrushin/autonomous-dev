@@ -2,7 +2,7 @@
 
 更新时间：2026-10-06
 
-这份状态表只记录当前工作区可复核的事实。`pnpm typecheck` 与 `pnpm test` 是当前标准本地检查；最后一次全量测试为 183/183；台账保留 ADR0069 时点的 181/181 基线。ADR0070 修复 hosted pnpm cache 所需 workspace package 声明；ADR0071 确保 ci:local 先 build 再执行依赖 dist 的测试；ADR0072 记录 hosted run 37404982889 的 `verify` job 成功证据（commit `0f876c29a4f537e9cad58a8886f5610b6f8336e9`）。
+这份状态表只记录当前工作区可复核的事实。`pnpm typecheck` 与 `pnpm test` 是当前标准本地检查；最后一次全量测试为 183/183；台账保留 ADR0069 时点的 181/181 基线。ADR0070 修复 hosted pnpm cache 所需 workspace package 声明；ADR0071 确保 ci:local 先 build 再执行依赖 dist 的测试；ADR0072 记录 hosted run 37404982889 的 `verify` job 成功证据（commit `0f876c29a4f537e9cad58a8886f5610b6f8336e9`）；ADR0073 将崩溃接管测试的租约窗口改为负载下稳定的有界等待。
 
 | 里程碑 | 当前状态 | 证据 | 尚未覆盖 |
 |---|---|---|---|
