@@ -1,4 +1,4 @@
-# autonomous-dev
+# DevLoop
 
 面向个人开发者的 AI 持续开发控制器。
 
@@ -33,3 +33,13 @@ pnpm devctl
 - [GitHub Actions CI](.github/workflows/ci.yml)
 
 本地测试、fake provider、静态 workflow 和构建产物只证明本地边界，不能替代 hosted CI、真实 GitHub/CI、SSH 主机、Docker/Podman、VM 或生产 metrics 验收。不要把凭据写入命令、日志、artifact 或仓库；真实外部验收须按 Runbook 由用户提供最小授权。
+
+## Web 可视化
+
+控制器运行态页面位于 [`web/index.html`](web/index.html)，展示目标状态、工作项队列、验证证据、预算和事件时间线。
+
+```bash
+python3 -m http.server 4173 --directory web
+```
+
+打开 <http://127.0.0.1:4173> 即可查看。当前页面使用本地演示数据，后续可接入控制器 API。

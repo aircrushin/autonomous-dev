@@ -2,7 +2,7 @@
 
 > 状态：实施前设计
 >
-> 工作名称：`autonomous-dev`
+> 工作名称：`DevLoop`
 >
 > 目标：新建一个独立仓库，持续推进软件开发任务，只有在缺少不可替代的人类方向、授权或判断时才暂停。
 >
@@ -86,7 +86,7 @@ flowchart TB
 ## 5. 仓库结构
 
 ```text
-autonomous-dev/
+DevLoop/
 ├── apps/
 │   └── cli/                  # devctl 命令行入口
 ├── src/
