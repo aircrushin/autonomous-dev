@@ -5,8 +5,8 @@ const commands = [
   ['typecheck'],
   ['lint'],
   ['scan:secrets'],
-  ['test'],
   ['build'],
+  ['test'],
 ];
 for (const args of commands) {
   const result = spawnSync('pnpm', args, { stdio: 'inherit', shell: false });

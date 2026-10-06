@@ -12,6 +12,6 @@
 | Phase 5 | `src/delivery/`、`tests/integration/delivery.test.ts`、`github-provider.test.ts`、ADR 0024/0032/0055/0068 | delivery focused 与全量通过；ADR0069 QC 只读 preflight 文档测试 1/1 | hosted GitHub/CI、真实 merge、外部回写 |
 | Phase 6 | `src/policy/`、HumanRequest storage/controller tests、ADR 0054 | phase6 focused 与全量通过 | 真实人工授权渠道与身份系统 |
 | Phase 7 | `src/observability/`、`tests/unit/export.test.ts`、`observability-http.test.ts`、ADR 0020/0026/0028/0061 | observability focused 与全量通过 | 生产认证/TLS、远程抓取与 metrics 部署 |
-| Phase 8 | `src/controller/scheduler.ts`、`src/environments/remote-ssh.ts`、`container.ts`、`tests/integration/remote-ssh.test.ts`、`container.test.ts`、ADR 0041/0045/0064/0065 | local CI、typecheck/build/lint/scan 与全量通过 | 真实 SSH、Docker/Podman daemon、VM、多 Agent、部署 |
+| Phase 8 | `src/controller/scheduler.ts`、`src/environments/remote-ssh.ts`、`container.ts`、`tests/integration/remote-ssh.test.ts`、`container.test.ts`、ADR 0041/0045/0064/0065/0070 | local CI、typecheck/build/lint/scan 与全量通过；pnpm workspace package 配置通过 focused test | 真实 SSH、Docker/Podman daemon、VM、多 Agent、部署 |
 
-标准门禁为 `pnpm ci:local`：typecheck → lint → scan:secrets → test → build，任一步失败即非零停止。当前本地证据不包含 GitHub hosted run、真实远端主机、容器 daemon、VM、生产 metrics 或任何外部凭据操作。
+标准门禁为 `pnpm ci:local`：typecheck → lint → scan:secrets → build → test，任一步失败即非零停止。当前本地证据不包含 GitHub hosted run、真实远端主机、容器 daemon、VM、生产 metrics 或任何外部凭据操作。

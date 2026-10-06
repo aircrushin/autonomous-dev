@@ -1,6 +1,6 @@
 # 外部验收 Runbook
 
-本文只描述需要在本地 fake 适配器之外执行的验收。当前工作区的静态 workflow、`pnpm ci:local` 和 182/182 本地测试不能替代 hosted runner、托管 PR/CI、真实远程主机、容器 daemon、VM 或生产 metrics 的运行证据；181/181 是 ADR0069 的历史基线。任何阶段都不得把凭据写入日志、截图、artifact 或仓库。
+本文只描述需要在本地 fake 适配器之外执行的验收。当前工作区的静态 workflow、`pnpm ci:local` 和 183/183 本地测试不能替代 hosted runner、托管 PR/CI、真实远程主机、容器 daemon、VM 或生产 metrics 的运行证据；181/181 是 ADR0069 的历史基线。任何阶段都不得把凭据写入日志、截图、artifact 或仓库。
 
 ## 1. GitHub Actions hosted run
 

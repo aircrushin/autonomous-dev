@@ -19,7 +19,7 @@ pnpm install --frozen-lockfile
 pnpm ci:local
 ```
 
-`pnpm ci:local` 按 typecheck → lint → secret scan → test → build 顺序执行；任一步失败立即以非零状态停止。开发 CLI 使用：
+`pnpm ci:local` 按 typecheck → lint → secret scan → build → test 顺序执行；任一步失败立即以非零状态停止，确保测试可使用当前构建产物。开发 CLI 使用：
 
 ```sh
 pnpm devctl
