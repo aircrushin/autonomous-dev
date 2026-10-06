@@ -1,6 +1,6 @@
 # 外部验收 Runbook
 
-本文只描述需要在本地 fake 适配器之外执行的验收。当前工作区的静态 workflow、`pnpm ci:local` 和 183/183 本地测试不能替代 hosted runner、托管 PR/CI、真实远程主机、容器 daemon、VM 或生产 metrics 的运行证据；181/181 是 ADR0069 的历史基线。任何阶段都不得把凭据写入日志、截图、artifact 或仓库。
+本文只描述需要在本地 fake 适配器之外执行的验收。当前工作区的静态 workflow、`pnpm ci:local` 和 183/183 本地测试不能替代额外 hosted runner、托管 PR/CI、真实远程主机、容器 daemon、VM 或生产 metrics 的运行证据；181/181 是 ADR0069 的历史基线。任何阶段都不得把凭据写入日志、截图、artifact 或仓库。
 
 ## 1. GitHub Actions hosted run
 
@@ -15,6 +15,8 @@ gh run view <RUN_ID> --repo <OWNER>/<REPO> --json databaseId,headSha,status,conc
 ```
 
 成功证据：hosted run 的 commit SHA、job 名称、开始/结束时间和每个 gate 的成功状态；下载的日志需先脱敏。失败/停止：workflow 未触发、SHA 不匹配、依赖安装非 frozen、任一 gate failed/skipped/timeout，立即停止后续外部交付。
+
+已记录的 hosted 证据：[`run 37404982889`](https://github.com/aircrushin/autonomous-dev/actions/runs/37404982889) 的 `verify` job 对 commit `0f876c29a4f537e9cad58a8886f5610b6f8336e9` 成功执行 frozen install 与 `pnpm ci:local`。该证据仅证明这次 hosted workflow 运行；尚无 PR/merge 对账，也未验收 SSH、容器 daemon、VM、跨机 Agent 或生产 metrics。
 
 ## 2. PR、CI 与 merge 对账
 
