@@ -13,4 +13,11 @@ test('external validation runbook covers staged evidence and stop boundaries wit
   assert.match(doc, /<OWNER>\/\<REPO>|<SSH_TARGET>|<IMAGE_REF>|<READ_ONLY_ENDPOINT>/);
   assert.doesNotMatch(doc, /gh\s+(pr\s+(create|merge)|workflow\s+run)|git\s+push|npm\s+publish|Bearer\s+[A-Za-z0-9]/i);
   assert.match(doc, /不得把私钥|凭据只存在/);
+  assert.match(doc, /https:\/\/github\.com\/aircrushin\/autonomous-dev\/actions\/runs\/37404982889/);
+  assert.match(doc, /verify/);
+  assert.match(doc, /0f876c29a4f537e9cad58a8886f5610b6f8336e9/);
+  assert.match(doc, /frozen install/);
+  assert.match(doc, /pnpm ci:local/);
+  assert.match(doc, /尚无 PR\/merge 对账/);
+  assert.doesNotMatch(doc, /gh\s+(pr\s+(create|merge)|workflow\s+run)|git\s+push|npm\s+publish|pnpm\s+publish/i);
 });
